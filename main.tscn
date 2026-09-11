@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://ddjesnkw50tje"]
+
+[ext_resource type="Script" uid="uid://d24pbbyvkklp7" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bj12lvwatjtdx" path="res://gui/dough_file_tab.tscn" id="4_lquwl"]
+
+[node name="MainWindow" type="Control" unique_id=1939530743]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="." unique_id=915019181]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_constants/minimum_grab_thickness = 0
+split_offsets = PackedInt32Array(32)
+collapsed = true
+dragging_enabled = false
+dragger_visibility = 1
+split_offset = 32
+
+[node name="Panel" type="Panel" parent="VSplitContainer" unique_id=1829792523]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MenuBar" type="MenuBar" parent="VSplitContainer/Panel" unique_id=979876654]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="File" type="PopupMenu" parent="VSplitContainer/Panel/MenuBar" unique_id=788356693]
+oversampling_override = 1.0
+item_count = 2
+item_0/text = "Save"
+item_0/id = 0
+item_1/text = "Load"
+item_1/id = 1
+
+[node name="Edit" type="PopupMenu" parent="VSplitContainer/Panel/MenuBar" unique_id=248537262]
+oversampling_override = 1.0
+item_count = 2
+item_0/text = "Save"
+item_0/id = 0
+item_1/text = "Load"
+item_1/id = 1
+
+[node name="Settings" type="PopupMenu" parent="VSplitContainer/Panel/MenuBar" unique_id=1873470639]
+oversampling_override = 1.0
+item_count = 2
+item_0/text = "Save"
+item_0/id = 0
+item_1/text = "Load"
+item_1/id = 1
+
+[node name="TabContainer" type="TabContainer" parent="VSplitContainer" unique_id=1382442473]
+layout_mode = 2
+current_tab = 0
+
+[node name="DoughFileTab" parent="VSplitContainer/TabContainer" unique_id=2113244927 instance=ExtResource("4_lquwl")]
+layout_mode = 2
+metadata/_tab_index = 0
