@@ -1,4 +1,6 @@
 extends Node
 
-var dough_path: String = "/home/callmemo/Projects/cookies/cookieslib/example/test.dough.lua"
-var user_defined: bool = false
+var settings: Dictionary = { }
+
+var opened_files: Dictionary[String, DoughFile] = { }
+var opened: String = "nofile"

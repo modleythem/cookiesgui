@@ -1,20 +1,25 @@
-extends TabContainer
+extends MarginContainer
 
-const PARAMETER = preload("uid://3uj8it73f1k8")
+const PARAMETER = preload("res://gui/parameter.tscn")
 
+var path: String
+var parameters: Dictionary = { }
 
 func _ready() -> void:
-	var file = FileAccess.get_file_as_string("/home/callmemo/Projects/cookies/cookieslib/example/test.dough.lua")
+	var file: String = FileAccess.get_file_as_string(path)
+	update(file)
 
-	var dough = DoughParser.parse(file)
 
-	for cats in dough.keys():
+func update(code: String):
+	parameters = DoughParser.parse(code)
+
+	for cats in parameters.keys():
 		if cats == "transform":
 			var category := Label.new()
 			category.text = "Transform"
 			category.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-			$Inspector/VBoxContainer.add_child(category)
-			var params: Dictionary = dough["transform"]
+			$HSplitContainer/Editor/Inspector/VBoxContainer.add_child(category)
+			var params: Dictionary = parameters["transform"]
 			for param in params.keys():
 				var p := PARAMETER.instantiate()
 				p.get_node("key").text = param
@@ -24,23 +29,23 @@ func _ready() -> void:
 					"x":
 						callable = func (value: float):
 							%Dough.position.x = value
-							dough[cats].x = value
+							parameters[cats].x = value
 					"y":
 						callable = func (value: float):
 							%Dough.position.y = value
-							dough[cats].y = value
+							parameters[cats].y = value
 					"sx":
 						callable = func (value: float):
 							%Dough.scale.x = value
-							dough[cats].sx = value
+							parameters[cats].sx = value
 					"sy":
 						callable = func (value: float):
 							%Dough.scale.y = value
-							dough[cats].sy = value
+							parameters[cats].sy = value
 					"r":
 						callable = func (value: float):
 							%Dough.rotation = value
-							dough[cats].r = value
+							parameters[cats].r = value
 				callable.call(params[param])
-				p.get_node("value").connect("value_changed", callable)
-				$Inspector/VBoxContainer.add_child(p)
+				p.get_node("value").value_changed.connect(callable)
+				$HSplitContainer/Editor/Inspector/VBoxContainer.add_child(p)

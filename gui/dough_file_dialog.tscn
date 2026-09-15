@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ch3i2mcrhyi28"]
+
+[node name="FileDialog" type="FileDialog" unique_id=1522372501]
+oversampling_override = 1.0
+title = "Open a File"
+initial_position = 1
+visible = true
+ok_button_text = "Accept"
+dialog_hide_on_ok = true
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.dough.lua")
+
+[connection signal="file_selected" from="." to="." method="_on_file_selected"]

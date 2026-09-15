@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c6fvq1jckh8w4"]
+
+[node name="OpenFolderDialog" type="FileDialog" unique_id=1157200547]
+oversampling_override = 1.0
+title = "Open a Directory"
+initial_position = 1
+visible = true
+file_mode = 2
+access = 2

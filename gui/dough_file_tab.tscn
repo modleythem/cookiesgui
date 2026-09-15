@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bj12lvwatjtdx"]
 
+[ext_resource type="Script" uid="uid://d30371ujsu033" path="res://gui/dough_file_tab.gd" id="1_7dd0w"]
 [ext_resource type="Script" uid="uid://dghfou18yqchl" path="res://gui/view_camera.gd" id="1_w5gfd"]
 [ext_resource type="Script" uid="uid://bxgvpap12k1tr" path="res://gui/view_root.gd" id="2_7dd0w"]
-[ext_resource type="Script" uid="uid://g7gu45hp4wqu" path="res://gui/editor.gd" id="2_tqyrk"]
 [ext_resource type="Texture2D" uid="uid://cao3f5881kst1" path="res://icon.svg" id="4_7dd0w"]
 
 [node name="doughfile" type="MarginContainer" unique_id=669059027]
@@ -21,6 +21,7 @@ theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
+script = ExtResource("1_7dd0w")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=265886730]
 layout_mode = 2
@@ -59,7 +60,6 @@ clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 current_tab = 0
-script = ExtResource("2_tqyrk")
 
 [node name="Inspector" type="MarginContainer" parent="HSplitContainer/Editor" unique_id=1573705512]
 layout_mode = 2
@@ -75,4 +75,8 @@ layout_mode = 2
 [node name="Code" type="CodeEdit" parent="HSplitContainer/Editor" unique_id=1643356418]
 visible = false
 layout_mode = 2
+caret_blink = true
+indent_use_spaces = true
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
 metadata/_tab_index = 1
