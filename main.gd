@@ -37,7 +37,7 @@ func open_dough_file():
 	const DOUGH_FILE_TAB = preload("res://gui/dough_file_tab.tscn")
 	var tab: Control = DOUGH_FILE_TAB.instantiate()
 	tab.path = filepath
-	tab.name = filepath.get_file().get_basename().get_basename()
+	tab.name = filepath.get_file().trim_suffix(".dough.lua")
 	%Tabs.add_child(tab)
 
 func save_dough_file():
